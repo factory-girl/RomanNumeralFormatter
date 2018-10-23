@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import RomanNumeralFormatter from './RomanNumeralFormatter';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<RomanNumeralFormatter />, document.getElementById('root'));
 registerServiceWorker();

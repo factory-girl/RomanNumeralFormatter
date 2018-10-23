@@ -1,4 +1,6 @@
 import React from 'react';
+import Form from './components/Form';
+import './App.css';
 
 class RomanNumeralFormatter extends React.Component {
     constructor(props) {
@@ -8,8 +10,7 @@ class RomanNumeralFormatter extends React.Component {
     }
 
     handleUserInput(e) {
-        const romanNumeral = this.formatToRomanNumeral(e.target.value);
-        this.setState({ userInput: e.target.value, formattedNumber: romanNumeral });
+        this.setState({ userInput: e.target.value });
     }
 
     formatToRomanNumeral(decimalNumber) {
@@ -31,9 +32,9 @@ class RomanNumeralFormatter extends React.Component {
         function symbolise(numeral, decimalValue) {
             if (decimalValue < 5 && Math.round(decimalNumber) > 0) {
                 do {
-                        romanNumeral += "I";
-                        decimalNumber--;
-                    } while (Math.round(decimalNumber) > 0);
+                    romanNumeral += "I";
+                    decimalNumber--;
+                } while (Math.round(decimalNumber) > 0);
 
             }
 
@@ -55,11 +56,10 @@ class RomanNumeralFormatter extends React.Component {
 
     render() {
         return (
-            <div>
-                <input type="text"
-                       onChange={this.handleUserInput}
-                       value={this.state.userInput}/>
-                <h1>{this.state.formattedNumber}</h1>
+            <div className="App">
+                <Form handleUserInput={this.handleUserInput}
+                      userInput={this.state.userInput}
+                      formattedNumber={this.formatToRomanNumeral(this.state.userInput)}/>
             </div>
         );
     }
